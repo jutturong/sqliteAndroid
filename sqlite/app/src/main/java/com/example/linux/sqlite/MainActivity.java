@@ -64,6 +64,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+// Button3 (Update)
+        final Button btn3 = (Button) findViewById(R.id.button3);
+        // Perform action on click
+        btn3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                // Open Form ListUpdate
+                Intent newActivity = new Intent(MainActivity.this,ListUpdateActivity.class);
+                startActivity(newActivity);
+
+            }
+        });
+
 
 
     }

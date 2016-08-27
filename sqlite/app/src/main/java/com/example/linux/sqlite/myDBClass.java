@@ -160,6 +160,50 @@ public class myDBClass extends SQLiteOpenHelper {
 
     }
 
+
+    // Update Data
+    public long UpdateData(String strMemberID,String strName,String strTel) {
+        // TODO Auto-generated method stub
+
+        try {
+
+            SQLiteDatabase db;
+            db = this.getWritableDatabase(); // Write Data
+
+            /**
+             *  for API 11 and above
+             SQLiteStatement insertCmd;
+             String strSQL = "UPDATE " + TABLE_MEMBER
+             + " SET Name = ? "
+             + " , Tel = ? "
+             + " WHERE MemberID = ? ";
+
+             insertCmd = db.compileStatement(strSQL);
+             insertCmd.bindString(1, strName);
+             insertCmd.bindString(2, strTel);
+             insertCmd.bindString(3, strMemberID);
+
+             return insertCmd.executeUpdateDelete();
+             *
+             */
+            ContentValues Val = new ContentValues();
+            Val.put("Name", strName);
+            Val.put("Tel", strTel);
+
+            long rows = db.update(TABLE_MEMBER, Val, " MemberID = ?",
+                    new String[] { String.valueOf(strMemberID) });
+
+            db.close();
+            return rows; // return rows updated.
+
+        } catch (Exception e) {
+            return -1;
+        }
+
+    }
+
+
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO Auto-generated method stub
