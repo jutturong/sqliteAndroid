@@ -203,6 +203,41 @@ public class myDBClass extends SQLiteOpenHelper {
     }
 
 
+    // Delete Data
+    public long DeleteData(String strMemberID) {
+        // TODO Auto-generated method stub
+
+        try {
+
+            SQLiteDatabase db;
+            db = this.getWritableDatabase(); // Write Data
+
+            /**
+             * for API 11 and above
+             SQLiteStatement insertCmd;
+             String strSQL = "DELETE FROM " + TABLE_MEMBER
+             + " WHERE MemberID = ? ";
+
+             insertCmd = db.compileStatement(strSQL);
+             insertCmd.bindString(1, strMemberID);
+
+             return insertCmd.executeUpdateDelete();
+             *
+             */
+
+            long rows = db.delete(TABLE_MEMBER, "MemberID = ?",
+                    new String[] { String.valueOf(strMemberID) });
+
+            db.close();
+            return rows; // return rows deleted.
+
+        } catch (Exception e) {
+            return -1;
+        }
+
+    }
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

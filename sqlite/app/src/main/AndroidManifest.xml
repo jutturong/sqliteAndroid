@@ -34,6 +34,8 @@
         <activity android:name=".ListUpdateActivity"></activity>
         <activity android:name=".UpdateActivity"></activity>
 
+        <activity android:name=".ListDeleteActivity"></activity>
+
 
 
     </application>

@@ -77,6 +77,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+// Button4 (Delete)
+        final Button btn4 = (Button) findViewById(R.id.button4);
+        // Perform action on click
+        btn4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                // Open Form ListDelete
+                Intent newActivity = new Intent(MainActivity.this,ListDeleteActivity.class);
+                startActivity(newActivity);
+
+            }
+        });
+
 
 
     }
