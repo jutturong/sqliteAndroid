@@ -50,6 +50,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        // Button2 (Show)
+        final Button btn2 = (Button) findViewById(R.id.button2);
+        // Perform action on click
+        btn2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                // Open Form Show
+                Intent newActivity = new Intent(MainActivity.this,ShowActivity.class);
+                startActivity(newActivity);
+
+            }
+        });
+
 
 
 
